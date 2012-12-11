@@ -1,0 +1,14 @@
+{
+    "name": "fuchcz/leenter",
+    "description": "Universal parser of lightweight markup languages.",
+    "authors": [
+        {
+            "name": "Miroslav Pokorný",
+            "email": "fuch@fuch.cz"
+        }
+    ],
+    "version": "0.1",
+    "autoload": {
+        "classmap": ["Leenter/"]
+    }
+}
