@@ -1,5 +1,6 @@
 # INSTALLATION
-Easiest way to install Leenter is via Composer. Use:
+Easiest way to install Leenter is via Composer. File `composer.json` could look like this:
+
     {
         "repositories": [
             {
@@ -8,6 +9,6 @@ Easiest way to install Leenter is via Composer. Use:
             }
         ],
         "require": {
-            "fuchcz/leenter": "0.1"
+            "fuchcz/leenter": "dev-master"
         }
     }
