@@ -142,8 +142,7 @@ class CoreParser
         // check, whether is tag allowed in current mode, or current tag, if isn't close current tag.
         // todo: allow defining max depth
         if (!$tag->isAllowedIn($this->currentMode, $this->currentTag)) {
-            $this->lexer->pushToken($token);
-            $this->closeCurrentTag();
+            $this->mainStack[] = new Token('T_TEXT', $token->getContent());
 
             return;
         }
