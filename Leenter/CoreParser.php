@@ -158,9 +158,9 @@ class CoreParser
             $this->mainStack[] = $token;
         } else {
             if (method_exists($this->parser, 'process' . $tag->getName())) {
-                $this->finalizeToken(call_user_func(array($this->parser, 'process' . $tag->getName()), $token->getContent()));
+                $this->mainStack[] = new Token('T_TEXT', call_user_func(array($this->parser, 'process' . $tag->getName()), substr($token->getContent(), strlen($this->parser->getOpeningBracket()), -strlen($this->parser->getClosingBracket()))));
             } else {
-                $this->finalizeToken($token->getContent());
+                $this->mainStack[] = new Token('T_TEXT', $token->getContent());
             }
         }
     }
