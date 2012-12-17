@@ -29,19 +29,19 @@ class CoreParser
     private $tagsPatternRefs;
 
     /** @var Tag[] stack of mismatched tags */
-    private $mismatchedTags = array();
+    private $mismatchedTags;
 
     /** @var Tag current tag */
     private $currentTag;
 
     /** @var int current mode */
-    private $currentMode = Tag::BLOCK;
+    private $currentMode;
 
     /** @var Token[] working stack */
-    private $mainStack = array();
+    private $mainStack;
 
     /** @var Tag[] stack of opened tags */
-    private $tagStack = array();
+    private $tagStack;
 
     public function __construct($preprocessor, $lexer, $parser)
     {
@@ -101,6 +101,11 @@ class CoreParser
      */
     public function parse($string)
     {
+        $this->mainStack = array();
+        $this->mismatchedTags = array();
+        $this->currentMode = Tag::BLOCK;
+        $this->tagStack = array();
+
         // run startup methods
         $parserMethods = get_class_methods(get_class($this->parser));
         foreach ($parserMethods as $parserMethod) {
