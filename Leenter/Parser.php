@@ -32,8 +32,11 @@ abstract class Parser
     /** @var CoreParser core parser */
     protected $parser;
 
-    public function __construct()
+    public function __construct($openingBracket = '[', $closingBracket = ']', $closingTagChar = '/')
     {
+        $this->openingBracket = $openingBracket;
+        $this->closingBracket = $closingBracket;
+        $this->closingTagChar = $closingTagChar;
         // create preprocessor, lexer and coreparser
         $this->preprocessor = new Preprocessor();
         $this->lexer = new Lexer();
